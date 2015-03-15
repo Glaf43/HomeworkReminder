@@ -6,13 +6,20 @@ import android.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.support.v4.app.DialogFragment;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements dialogFragment.OnCallback {
     private Toolbar topbar;
     FragmentManager fm ;
+    Fragment fr;
+    public Model model;
+
+    public static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +32,10 @@ public class MainActivity extends ActionBarActivity {
         fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
 
-        Fragment fr = new ListFragment();
+        fr = new ListFragment();
         fragmentTransaction.replace(R.id.fragment_place, fr);
         fragmentTransaction.commit();
+        model=Model.instance(getApplicationContext());
         //
     }
 
@@ -47,8 +55,24 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.plus) {
-            return true;
+            dialogFragment dialog = new dialogFragment();
+            dialog.show(fm, dialogFragment.TAG);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClassSetted(String newName, String Comment, String date) {
+        if(!TextUtils.isEmpty(newName)) {
+            model.insert(new Item(newName, Comment, date));
+            //System.out.println(newName);
+            //System.out.println(Comment);
+            //System.out.println(date);
+            fr = new ListFragment();
+            fm = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fm.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_place, fr);
+            fragmentTransaction.commit();
+        }
     }
 }

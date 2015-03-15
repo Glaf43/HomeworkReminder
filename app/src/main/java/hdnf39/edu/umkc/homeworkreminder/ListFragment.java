@@ -14,7 +14,7 @@ import java.util.List;
  * Created by mr_glaf43 on 2/19/2015.
  */
 public class ListFragment extends android.app.ListFragment implements AdapterView.OnItemClickListener {
-    Model model;
+    public Model model;
     CustomAdapter adapter;
 
 
@@ -33,14 +33,19 @@ public class ListFragment extends android.app.ListFragment implements AdapterVie
         super.onActivityCreated(savedInstanceState);
         model=Model.instance(getActivity().getApplicationContext());
 
-        populateFemaleList();
+        populateList();
         adapter = new CustomAdapter(getActivity(), model.findAll());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
 
-    public void populateFemaleList(){
+    public void populateList(){
+        if(model.findAll().isEmpty()) {
             model.insert(new Item("CS441", "homework", "2015/03/15"));
+        }
+        else{
+
+        }
     }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -49,5 +54,8 @@ public class ListFragment extends android.app.ListFragment implements AdapterVie
         intent.putExtra("name",femaleList.get(position).getName());
         intent.putExtra("gender", "female");
         startActivity( intent);*/
+    }
+    public void addAssignment(Item item){
+        model.insert(item);
     }
 }

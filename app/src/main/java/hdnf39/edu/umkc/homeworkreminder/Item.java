@@ -14,6 +14,13 @@ public class Item {
         this.comment=comment;
         this.date=date;
     }
+    public Item(String name, String comment){
+        super();
+        this.name=name;
+        this.comment=comment;
+        this.date="";
+
+    }
 
     public String getName(){
         return name;

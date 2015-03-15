@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500px"
+    android:layout_margin="8dp"
+    android:id="@+id/dialogLayout">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_above="@+id/txt_date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comment"
+        android:layout_above="@+id/btn_done"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_alignBottom="@+id/txt_date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:layout_below="@+id/txt_comment"
+        android:layout_alignLeft="@+id/txt_comment"
+        android:layout_alignStart="@+id/txt_comment" />
+
+    <EditText
+        android:id="@+id/txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:hint=""
+        android:inputType="text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/txt_comment"
+        android:layout_alignStart="@+id/txt_comment" />
+    <EditText
+        android:id="@+id/txt_comment"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:hint=""
+        android:inputType="text"
+        android:layout_below="@+id/txt_date"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/comment"
+        android:layout_toEndOf="@+id/comment" />
+    <EditText
+        android:id="@+id/txt_date"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:hint=""
+        android:inputType="text"
+        android:layout_below="@+id/txt_name"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/txt_name"
+        android:layout_alignStart="@+id/txt_name" />
+
+</RelativeLayout>
