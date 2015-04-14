@@ -2,7 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="500px"
+    android:layout_height="2000px"
     android:layout_margin="8dp"
     android:id="@+id/dialogLayout">
 
@@ -10,17 +10,9 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Name"
-        android:layout_above="@+id/txt_date"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/comment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Comment"
-        android:layout_above="@+id/btn_done"
+        android:layout_alignBottom="@+id/txt_name"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -29,7 +21,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date"
-        android:layout_alignBottom="@+id/txt_date"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignTop="@+id/current_time"
+        android:layout_alignRight="@+id/name"
+        android:layout_alignEnd="@+id/name" />
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comment"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/time"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -39,42 +53,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
-        android:layout_below="@+id/txt_comment"
-        android:layout_alignLeft="@+id/txt_comment"
-        android:layout_alignStart="@+id/txt_comment" />
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/comment"
+        android:layout_toRightOf="@+id/comment"
+        android:layout_toEndOf="@+id/comment" />
 
     <EditText
         android:id="@+id/txt_name"
         android:layout_width="match_parent"
-        android:layout_height="90px"
+        android:layout_height="100px"
         android:hint=""
         android:inputType="text"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/txt_comment"
-        android:layout_alignStart="@+id/txt_comment" />
+        android:layout_alignParentEnd="false"
+        android:layout_marginTop="54dp"
+        android:layout_toRightOf="@+id/comment"
+        android:layout_toEndOf="@+id/comment" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancle"
+        android:id="@+id/btn_cancel"
+        android:layout_alignTop="@+id/btn_done"
+        android:layout_toRightOf="@+id/btn_done"
+        android:layout_toEndOf="@+id/btn_done" />
+
     <EditText
         android:id="@+id/txt_comment"
         android:layout_width="match_parent"
-        android:layout_height="90px"
+        android:layout_height="100px"
         android:hint=""
         android:inputType="text"
-        android:layout_below="@+id/txt_date"
+        android:layout_alignBottom="@+id/comment"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/comment"
         android:layout_toEndOf="@+id/comment" />
-    <EditText
-        android:id="@+id/txt_date"
-        android:layout_width="match_parent"
-        android:layout_height="90px"
-        android:hint=""
-        android:inputType="text"
-        android:layout_below="@+id/txt_name"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/txt_name"
-        android:layout_alignStart="@+id/txt_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="03-27-2015"
+        android:id="@+id/current_date"
+        android:enabled="true"
+        android:layout_alignTop="@+id/date"
+        android:layout_alignLeft="@+id/txt_comment"
+        android:layout_alignStart="@+id/txt_comment"
+        android:layout_alignBottom="@+id/date" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="12:00"
+        android:id="@+id/current_time"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/current_date"
+        android:layout_alignLeft="@+id/current_date"
+        android:layout_alignStart="@+id/current_date" />
+
 
 </RelativeLayout>

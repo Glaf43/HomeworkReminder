@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import junit.framework.Assert;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,21 +34,19 @@ public class ListFragment extends android.app.ListFragment implements AdapterVie
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         model=Model.instance(getActivity().getApplicationContext());
-
-        populateList();
+        if(model.findAll().isEmpty())
+            populateList();
         adapter = new CustomAdapter(getActivity(), model.findAll());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
 
     public void populateList(){
-        if(model.findAll().isEmpty()) {
-            model.insert(new Item("CS441", "homework", "2015/03/15"));
-        }
-        else{
+        Assert.assertTrue("There is no item in the model",model.findAll().isEmpty());
+        model.insert(new Item("CS441", "homework", "2015/03/15",null));
 
-        }
     }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 /*

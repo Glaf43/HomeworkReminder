@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import junit.framework.Assert;
+
 import java.util.List;
 
 /**
@@ -40,6 +42,7 @@ public class CustomAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
+            Assert.assertTrue("View is null",convertView == null);
             LayoutInflater mInflater = (LayoutInflater) context
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.custom_item, null);
@@ -49,7 +52,6 @@ public class CustomAdapter extends BaseAdapter{
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView comment=(TextView) convertView.findViewById(R.id.comment);
         TextView date=(TextView) convertView.findViewById(R.id.date);
-
 
         Item item = listItem.get(position);
         // setting the image resource and title

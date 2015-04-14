@@ -9,7 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.DialogFragment;
+
+import java.util.Calendar;
+
+import hdnf39.edu.umkc.homeworkreminder.service.ScheduleClient;
 
 
 public class MainActivity extends ActionBarActivity implements dialogFragment.OnCallback {
@@ -19,6 +22,8 @@ public class MainActivity extends ActionBarActivity implements dialogFragment.On
     public Model model;
 
     public static final String TAG = "MainActivity";
+
+    private ScheduleClient scheduleClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +41,10 @@ public class MainActivity extends ActionBarActivity implements dialogFragment.On
         fragmentTransaction.replace(R.id.fragment_place, fr);
         fragmentTransaction.commit();
         model=Model.instance(getApplicationContext());
+
+
         //
+
     }
 
     @Override
@@ -60,11 +68,17 @@ public class MainActivity extends ActionBarActivity implements dialogFragment.On
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //This is where ClassCastException might be thrown
     @Override
-    public void onClassSetted(String newName, String Comment, String date) {
+    public void onClassSetted(String newName, String Comment, String date, Calendar calendar) throws ClassCastException{
         if(!TextUtils.isEmpty(newName)) {
-            model.insert(new Item(newName, Comment, date));
+            scheduleClient = new ScheduleClient(this.getApplicationContext());
+            scheduleClient.doBindService();
+
+            model.insert(new Item(newName, Comment, date, calendar));
+
+            scheduleClient.setAlarmForNotification(calendar);
+            //scheduleClient.setAlarmForNotification(calendar);
             //System.out.println(newName);
             //System.out.println(Comment);
             //System.out.println(date);
@@ -74,5 +88,15 @@ public class MainActivity extends ActionBarActivity implements dialogFragment.On
             fragmentTransaction.replace(R.id.fragment_place, fr);
             fragmentTransaction.commit();
         }
+    }
+    @Override
+    protected void onStop() {
+        // When our activity is stopped ensure we also stop the connection to the service
+        // this stops us leaking our activity into the system *bad*
+        if(scheduleClient != null) {
+            scheduleClient.doUnbindService();
+            System.out.println("doBindSevice disconnected");
+        }
+        super.onStop();
     }
 }
