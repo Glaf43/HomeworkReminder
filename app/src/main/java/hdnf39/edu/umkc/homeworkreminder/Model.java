@@ -29,6 +29,8 @@ public class Model {
         itemList.add(item);
     }
 
+    public int countItem(){return itemList.size();}
+
     public ArrayList<Item> findAll(){
         return itemList;
     }

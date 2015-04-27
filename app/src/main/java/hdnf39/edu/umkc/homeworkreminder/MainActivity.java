@@ -42,7 +42,8 @@ public class MainActivity extends ActionBarActivity implements dialogFragment.On
         fragmentTransaction.commit();
         model=Model.instance(getApplicationContext());
 
-
+        scheduleClient = new ScheduleClient(this);
+        scheduleClient.doBindService();
         //
 
     }
@@ -72,8 +73,7 @@ public class MainActivity extends ActionBarActivity implements dialogFragment.On
     @Override
     public void onClassSetted(String newName, String Comment, String date, Calendar calendar) throws ClassCastException{
         if(!TextUtils.isEmpty(newName)) {
-            scheduleClient = new ScheduleClient(this.getApplicationContext());
-            scheduleClient.doBindService();
+
 
             model.insert(new Item(newName, Comment, date, calendar));
 

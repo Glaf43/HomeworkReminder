@@ -35,16 +35,16 @@ public class ListFragment extends android.app.ListFragment implements AdapterVie
         super.onActivityCreated(savedInstanceState);
         model=Model.instance(getActivity().getApplicationContext());
         if(model.findAll().isEmpty())
-            populateList();
+            populateList(model);
         adapter = new CustomAdapter(getActivity(), model.findAll());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
 
-    public void populateList(){
-        Assert.assertTrue("There is no item in the model",model.findAll().isEmpty());
-        model.insert(new Item("CS441", "homework", "2015/03/15",null));
-
+    public void populateList(Model model){
+       // model=new Model(getContext());
+//        Assert.assertTrue("There is no item in the model",model.findAll().isEmpty());
+        //model.insert(new Item("CS441", "homework", "2015/03/15",null));
     }
 
     @Override
