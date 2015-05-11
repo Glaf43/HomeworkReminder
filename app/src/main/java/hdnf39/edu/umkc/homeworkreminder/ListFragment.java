@@ -1,16 +1,10 @@
 package hdnf39.edu.umkc.homeworkreminder;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-
-import junit.framework.Assert;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by mr_glaf43 on 2/19/2015.
@@ -55,7 +49,7 @@ public class ListFragment extends android.app.ListFragment implements AdapterVie
         intent.putExtra("gender", "female");
         startActivity( intent);*/
     }
-    public void addAssignment(Item item){
-        model.insert(item);
+    public void addAssignment(Homework Homework){
+        model.insert(Homework);
     }
 }

@@ -17,26 +17,26 @@ import java.util.List;
  */
 public class CustomAdapter extends BaseAdapter{
     Context context;
-    List<Item> listItem;
+    List<Homework> listHomework;
 
-    CustomAdapter(Context context, List<Item> listItem){
+    CustomAdapter(Context context, List<Homework> listHomework){
         this.context=context;
-        this.listItem=listItem;
+        this.listHomework = listHomework;
     }
 
     @Override
     public int getCount() {
-        return listItem.size();
+        return listHomework.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return listItem.get(position);
+        return listHomework.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return listItem.indexOf((getItem(position)));
+        return listHomework.indexOf((getItem(position)));
     }
 
     @Override
@@ -50,15 +50,15 @@ public class CustomAdapter extends BaseAdapter{
 
         //ImageView imgIcon = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);
-        TextView comment=(TextView) convertView.findViewById(R.id.comment);
+        TextView comment=(TextView) convertView.findViewById(R.id.ClassName);
         TextView date=(TextView) convertView.findViewById(R.id.date);
 
-        Item item = listItem.get(position);
+        Homework Homework = listHomework.get(position);
         // setting the image resource and title
         //imgIcon.setImageResource(item.getIconID());
-        name.setText(item.getName());
-        comment.setText(item.getComment());
-        date.setText(item.getDate());
+        name.setText(Homework.getName());
+        comment.setText(Homework.getComment());
+        date.setText(Homework.getDate());
 
         return convertView;
     }

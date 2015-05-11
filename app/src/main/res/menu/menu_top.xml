@@ -2,7 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-    <item android:id="@+id/plus"
+    <item android:id="@+id/addHomeWork"
+        android:title="home"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_plus"
+        app:showAsAction="always"/>
+    <item android:id="@+id/addClass"
         android:title="home"
         android:orderInCategory="200"
         android:icon="@drawable/ic_plus"

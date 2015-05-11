@@ -12,7 +12,7 @@ public class Model {
     private static Model instance = null;
     private Context context;
 
-    private ArrayList<Item> itemList=new ArrayList<Item>();
+    private ArrayList<Homework> homeworkList =new ArrayList<Homework>();
 
     private Model(Context context) {
         this.context=context;
@@ -25,13 +25,13 @@ public class Model {
         return instance;
     }
 
-    public void insert(Item item) {
-        itemList.add(item);
+    public void insert(Homework Homework) {
+        homeworkList.add(Homework);
     }
 
-    public int countItem(){return itemList.size();}
+    public int countItem(){return homeworkList.size();}
 
-    public ArrayList<Item> findAll(){
-        return itemList;
+    public ArrayList<Homework> findAll(){
+        return homeworkList;
     }
 }

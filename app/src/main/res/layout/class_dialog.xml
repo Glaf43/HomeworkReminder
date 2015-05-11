@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="2000px"
+    android:layout_margin="8dp"
+    android:id="@+id/dialogLayout">
+
+    <TextView
+        android:id="@+id/ProfessorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Professor"
+        android:layout_alignBottom="@+id/txt_professor_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/ClassName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Class Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/name" />
+
+
+    <Button
+        android:id="@+id/btn_class_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:layout_below="@+id/txt_professor_name"
+        android:layout_alignLeft="@+id/txt_professor_name"
+        android:layout_alignStart="@+id/txt_professor_name" />
+
+    <EditText
+        android:id="@+id/txt_professor_name"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:hint=""
+        android:inputType="text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/ClassName"
+        android:layout_toEndOf="@+id/ClassName" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancle"
+        android:id="@+id/btn_class_cancel"
+        android:layout_below="@+id/txt_professor_name"
+        android:layout_toRightOf="@+id/btn_class_done"
+        android:layout_toEndOf="@+id/btn_class_done" />
+
+    <EditText
+        android:id="@+id/txt_class_name"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:hint=""
+        android:inputType="text"
+        android:layout_alignBottom="@+id/ClassName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/ClassName"
+        android:layout_toEndOf="@+id/ClassName" />
+
+
+</RelativeLayout>

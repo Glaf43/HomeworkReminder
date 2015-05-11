@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="50sp"
+        android:layout_height="55sp"
         android:layout_centerVertical="true"
         >
         <TextView
@@ -43,7 +43,6 @@
             android:layout_alignParentEnd="true" />
         <!-- Rightend Arrow -->
     </RelativeLayout>
-
 
 
 </RelativeLayout>

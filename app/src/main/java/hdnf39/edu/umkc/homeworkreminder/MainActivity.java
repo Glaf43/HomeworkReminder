@@ -15,11 +15,12 @@ import java.util.Calendar;
 import hdnf39.edu.umkc.homeworkreminder.service.ScheduleClient;
 
 
-public class MainActivity extends ActionBarActivity implements dialogFragment.OnCallback {
+public class MainActivity extends ActionBarActivity implements HomeworkDialog.OnCallback {
     private Toolbar topbar;
     FragmentManager fm ;
     Fragment fr;
     public Model model;
+
 
     public static final String TAG = "MainActivity";
 
@@ -34,6 +35,7 @@ public class MainActivity extends ActionBarActivity implements dialogFragment.On
         setSupportActionBar(topbar);
         //set title action bar
         getSupportActionBar().setTitle("Home");
+
         fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
 
@@ -63,19 +65,24 @@ public class MainActivity extends ActionBarActivity implements dialogFragment.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.plus) {
-            dialogFragment dialog = new dialogFragment();
-            dialog.show(fm, dialogFragment.TAG);
+        if (id == R.id.addHomeWork) {
+            HomeworkDialog dialog = new HomeworkDialog();
+            dialog.show(fm, HomeworkDialog.TAG);
+        }
+
+        else if (id == R.id.addClass) {
+            ClassDialog dialog = new ClassDialog();
+            dialog.show(fm, HomeworkDialog.TAG);
         }
         return super.onOptionsItemSelected(item);
     }
+
     //This is where ClassCastException might be thrown
     @Override
     public void onClassSetted(String newName, String Comment, String date, Calendar calendar) throws ClassCastException{
         if(!TextUtils.isEmpty(newName)) {
 
-
-            model.insert(new Item(newName, Comment, date, calendar));
+            model.insert(new Homework(newName, Comment, date, calendar));
 
             scheduleClient.setAlarmForNotification(calendar);
             //scheduleClient.setAlarmForNotification(calendar);

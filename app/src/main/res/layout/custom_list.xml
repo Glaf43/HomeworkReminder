@@ -6,7 +6,7 @@
     android:background="@color/frame_background"
     android:layout_gravity="center"
     android:gravity="center_vertical"
-    android:padding="6dp"
+    android:padding="2dp"
     >
 
     <ListView
