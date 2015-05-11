@@ -11,3 +11,15 @@ iteration 3
 ![](http://i.imgur.com/7SC16WK.png)
 ![](http://i.imgur.com/LoO84dB.png)
 ![](http://i.imgur.com/5nay1Gm.png)
+
+iteration 5
+
+![](http://i.imgur.com/JoOtWcH.png)
+![](http://i.imgur.com/NPRV30W.png)
+
+![](http://i.imgur.com/yqsevWN.png)
+![](http://i.imgur.com/H1TAE2v.png)
+
+![](http://i.imgur.com/YKBcJDw.png?1)
+
+
